@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Lanova Fit — prezentacja produktu</title>
+<style>
+  @font-face { font-family: Archivo; font-weight: 400;
+    src: url("fonts/Archivo-Regular.ttf"); }
+  @font-face { font-family: Archivo; font-weight: 600;
+    src: url("fonts/Archivo-SemiBold.ttf"); }
+  @font-face { font-family: Archivo; font-weight: 800;
+    src: url("fonts/Archivo-ExtraBold.ttf"); }
+
+  :root {
+    --accent: #EC3013;
+    --ink: #14100F;
+    --muted: #6B6461;
+    --line: #D7D2CF;
+    --bg: #F4F1EF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0; }
+
+  html { font-family: Archivo, Arial, sans-serif; color: var(--ink); }
+
+  @page { size: 338mm 190mm; margin: 0; }
+
+  .slide {
+    width: 338mm; height: 190mm;
+    padding: 16mm 18mm;
+    background: #fff;
+    page-break-after: always;
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  .slide:last-child { page-break-after: auto; }
+
+  .kicker {
+    font-size: 10pt; font-weight: 800; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 5mm;
+  }
+  h1 { font-size: 40pt; font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; }
+  h2 { font-size: 26pt; font-weight: 800; line-height: 1.06; letter-spacing: -0.01em; }
+  h3 { font-size: 12pt; font-weight: 800; letter-spacing: 0.02em; }
+  p  { font-size: 11.5pt; line-height: 1.5; color: var(--ink); }
+  p.muted, li.muted, .muted { color: var(--muted); }
+  .lead { font-size: 14pt; line-height: 1.45; }
+
+  .num { color: var(--accent); font-weight: 800; }
+
+  .foot {
+    position: absolute; left: 18mm; right: 18mm; bottom: 9mm;
+    display: flex; justify-content: space-between;
+    font-size: 8.5pt; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); border-top: 1px solid var(--line); padding-top: 3mm;
+  }
+
+  .cols { display: flex; gap: 12mm; flex: 1; align-items: flex-start; }
+  .col { flex: 1; }
+
+  ul { list-style: none; }
+  li { font-size: 11.5pt; line-height: 1.45; padding-left: 7mm; position: relative; margin-bottom: 3.5mm; }
+  li::before { content: ""; position: absolute; left: 0; top: 2.6mm;
+               width: 3mm; height: 3mm; background: var(--accent); }
+
+  .shots { display: flex; gap: 8mm; align-items: flex-end; }
+  .shots img { height: 108mm; border: 1px solid var(--line); display: block; }
+  .shots.tall img { height: 122mm; }
+  .cap { font-size: 9pt; color: var(--muted); margin-top: 2.5mm; line-height: 1.35; }
+  .shot { display: flex; flex-direction: column; }
+  /* The phone shots line up on their bottom edge; the text beside them starts
+     at the top, where the reader's eye already is. */
+  .shots .col { align-self: flex-start; }
+
+  .stats { display: flex; gap: 0; border: 1px solid var(--line); }
+  .stat { flex: 1; padding: 6mm; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: 0; }
+  .stat .v { font-size: 26pt; font-weight: 800; color: var(--accent); line-height: 1; }
+  .stat .l { font-size: 8.5pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 2.5mm; }
+
+  .title-slide { background: var(--ink); color: #fff; justify-content: center; }
+  .title-slide h1 { font-size: 54pt; color: #fff; }
+  .title-slide .kicker { color: #FF563C; }
+  .title-slide p { color: #CFC8C5; }
+  .wordmark { font-size: 13pt; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; }
+  .wordmark span { color: var(--accent); }
+
+  .todo { color: var(--accent); font-weight: 600; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 10.5pt; }
+  th, td { text-align: left; padding: 3.5mm 4mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 8.5pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide title-slide">
+  <div class="wordmark">Lanova <span>Fit</span></div>
+  <div style="height:14mm"></div>
+  <h1>Trening i jadłospis<br>w jednej aplikacji.</h1>
+  <div style="height:8mm"></div>
+  <p class="lead" style="max-width:190mm">Gotowy program na cały miesiąc, biblioteka 222 ćwiczeń z animacjami 3D
+  i jadłospis przeliczony pod cel użytkowniczki. Osiem języków, bez reklam, subskrypcja po siedmiu dniach próbnych.</p>
+  <div style="height:16mm"></div>
+  <p style="font-size:10pt;letter-spacing:0.14em;text-transform:uppercase">Prezentacja dla inwestorów · wrzesień 2026</p>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="kicker">Problem</div>
+  <h2>Kobieta, która chce ćwiczyć w domu, dostaje albo listę filmów, albo trenera za 300 zł za sesję.</h2>
+  <div style="height:10mm"></div>
+  <div class="cols">
+    <div class="col">
+      <ul>
+        <li>Aplikacje treningowe dają katalog, a nie plan: użytkowniczka sama układa tydzień i sama decyduje, co po czym.</li>
+        <li>Plan żywieniowy jest osobnym produktem i osobną subskrypcją, więc trening i jedzenie nie rozmawiają ze sobą.</li>
+        <li>Darmowe aplikacje monetyzują się reklamą, więc trening przerywa spot, a dane idą do brokerów reklamowych.</li>
+        <li>Kontuzje i ograniczenia zdrowotne są ignorowane albo zbywane regulaminem.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="stats" style="flex-direction:column">
+        <div class="stat" style="border-right:0;border-bottom:1px solid var(--line)">
+          <div class="v">1 decyzja</div>
+          <div class="l">Tyle wymagamy dziennie: zacząć</div>
+        </div>
+        <div class="stat" style="border-right:0">
+          <div class="v">0 reklam</div>
+          <div class="l">W aplikacji, na każdym planie</div>
+        </div>
+      </div>
+      <div style="height:6mm"></div>
+      <p class="muted">Rynek i wielkość segmentu: <span class="todo">[do uzupełnienia — dane z wybranego raportu]</span></p>
+    </div>
+  </div>
+  <div class="foot"><span>Lanova Fit</span><span>02</span></div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="kicker">Rozwiązanie</div>
+  <h2>Cztery pytania na starcie. Reszta dzieje się sama.</h2>
+  <div style="height:8mm"></div>
+  <div class="shots">
+    <div class="shot"><img src="zrzuty/01_goal.png" alt="">
+      <div class="cap">Cel prowadzi cały plan</div></div>
+    <div class="shot"><img src="zrzuty/02_train.png" alt="">
+      <div class="cap">Poziom i sprzęt</div></div>
+    <div class="shot"><img src="zrzuty/03_eat.png" alt="">
+      <div class="cap">Dieta i alergeny</div></div>
+    <div class="shot"><img src="zrzuty/04_finetune.png" alt="">
+      <div class="cap">Dni treningowe w tygodniu</div></div>
+    <div class="col" style="padding-left:4mm">
+      <p>Po onboardingu użytkowniczka ma komplet: program na bieżący miesiąc,
+      jadłospis przeliczony na jej zapotrzebowanie i bibliotekę przefiltrowaną
+      pod jej sprzęt.</p>
+      <div style="height:5mm"></div>
+      <p class="muted">Zadeklarowana kontuzja uruchamia osobną, wersjonowaną zgodę —
+      plan powstaje dopiero po jej podpisaniu.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Onboarding</span><span>03</span></div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="kicker">Produkt · program</div>
+  <h2>Jeden program na kalendarzowy miesiąc, nie luźna półka z treningami.</h2>
+  <div style="height:7mm"></div>
+  <div class="shots">
+    <div class="shot"><img src="zrzuty/05_home.png" alt="">
+      <div class="cap">Ekran główny: dzisiejszy trening, seria, licznik</div></div>
+    <div class="shot"><img src="zrzuty/06_program.png" alt="">
+      <div class="cap">Wrzesień: 22 treningi, 5 w tygodniu</div></div>
+    <div class="shot"><img src="zrzuty/06b_program_today.png" alt="">
+      <div class="cap">Opuszczony trening zostaje na liście</div></div>
+    <div class="col" style="padding-left:4mm">
+      <ul>
+        <li>Program powstaje pierwszego dnia miesiąca pod cel, poziom, sprzęt i wybrane dni.</li>
+        <li>Zmiana celu lub liczby dni przebudowuje resztę miesiąca od razu, nie od następnego logowania.</li>
+        <li>Nic nie przepada: pominięty trening można zrobić później.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Program miesięczny</span><span>04</span></div>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="kicker">Produkt · trening</div>
+  <h2>Od podglądu do serii w dwóch dotknięciach.</h2>
+  <div style="height:7mm"></div>
+  <div class="shots">
+    <div class="shot"><img src="zrzuty/07_preview.png" alt="">
+      <div class="cap">Podgląd: czas, liczba ćwiczeń i serii</div></div>
+    <div class="shot"><img src="zrzuty/08_exercise.png" alt="">
+      <div class="cap">Ćwiczenie: animacja w pętli i technika krok po kroku</div></div>
+    <div class="shot"><img src="zrzuty/09_player.png" alt="">
+      <div class="cap">Odtwarzacz prowadzi serię po serii</div></div>
+    <div class="col" style="padding-left:4mm">
+      <p>Animacje są własne i spójne: ta sama postać, to samo studio, pętla bez cięcia.
+      Nie są to licencjonowane filmiki z banku wideo.</p>
+      <div style="height:5mm"></div>
+      <div class="stats" style="flex-direction:column">
+        <div class="stat" style="border-right:0;border-bottom:1px solid var(--line)">
+          <div class="v">60 / 222</div><div class="l">Ćwiczeń z gotową animacją</div>
+        </div>
+        <div class="stat" style="border-right:0">
+          <div class="v">27</div><div class="l">Typów sesji treningowych</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Trening</span><span>05</span></div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="kicker">Produkt · biblioteka</div>
+  <h2>222 ćwiczenia, filtrowane pod to, co użytkowniczka naprawdę ma w domu.</h2>
+  <div style="height:7mm"></div>
+  <div class="shots">
+    <div class="shot"><img src="zrzuty/10_library.png" alt="">
+      <div class="cap">Biblioteka zawężona do celu i sprzętu</div></div>
+    <div class="shot"><img src="zrzuty/11_filters.png" alt="">
+      <div class="cap">Sprzęt, kategoria, obszar, mięśnie</div></div>
+    <div class="col" style="padding-left:4mm">
+      <ul>
+        <li>Sprzęt jest jedynym twardym filtrem: bez sprzętu, mata, krzesło, ściana, hantle, guma, ławka, maszyny.</li>
+        <li>Poziom nie odcina ćwiczeń, tylko porządkuje listę — początkująca widzi całość i rośnie w niej.</li>
+        <li>Zadeklarowane kontuzje usuwają z puli ruchy przeciwwskazane.</li>
+      </ul>
+      <div style="height:4mm"></div>
+      <p class="muted">Na zrzucie profil „tylko mata” widzi 138 z 222 ćwiczeń.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Biblioteka</span><span>06</span></div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="kicker">Produkt · jadłospis</div>
+  <h2>Jadłospis liczony z profilu, nie wybrany z listy diet.</h2>
+  <div style="height:7mm"></div>
+  <div class="shots">
+    <div class="shot"><img src="zrzuty/14_meals.png" alt="">
+      <div class="cap">Cel dzienny, makroskładniki i menu na dziś</div></div>
+    <div class="col" style="padding-left:4mm">
+      <ul>
+        <li>Zapotrzebowanie wyliczamy z wieku, wzrostu, wagi, celu i liczby treningów; menu skalujemy do tej liczby.</li>
+        <li>114 dań i 81 przepisów; wieprzowina i alkohol nie wchodzą do puli z zasady.</li>
+        <li>Alergeny i dieta z profilu wycinają dania, zanim trafią do dnia.</li>
+        <li>Aplikacja nie schodzi poniżej bezpiecznego progu kalorii i mówi o tym wprost.</li>
+      </ul>
+      <div style="height:4mm"></div>
+      <p class="muted">Nazwy dań i przepisy są dziś po angielsku także w wersjach obcojęzycznych;
+      aplikacja informuje o tym w ustawieniach języka. Tłumaczenie treści kulinarnych jest w planie.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Jadłospis</span><span>07</span></div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="kicker">Utrzymanie</div>
+  <h2>Seria dni, minuty tygodnia i waga w jednym miejscu.</h2>
+  <div style="height:7mm"></div>
+  <div class="shots">
+    <div class="shot"><img src="zrzuty/12_progress.png" alt="">
+      <div class="cap">Postępy po pierwszym treningu</div></div>
+    <div class="shot"><img src="zrzuty/16_language.png" alt="">
+      <div class="cap">Osiem języków interfejsu</div></div>
+    <div class="col" style="padding-left:4mm">
+      <ul>
+        <li>Seria dni i tygodniowy wykres minut to główna pętla powrotu; codzienne przypomnienie jest domyślnie włączone.</li>
+        <li>Waga i BMI prowadzą do celu wagowego z profilu.</li>
+        <li>Interfejs: polski, angielski, hiszpański, portugalski, francuski, niemiecki, ukraiński, rosyjski.</li>
+      </ul>
+      <div style="height:4mm"></div>
+      <p class="muted">Dane treningowe trzymamy na urządzeniu. Aplikacja nie wymaga zakładania konta.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Postępy i retencja</span><span>08</span></div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="kicker">Model</div>
+  <h2>Siedem dni pełnego dostępu, potem subskrypcja w Google Play.</h2>
+  <div style="height:7mm"></div>
+  <div class="shots">
+    <div class="shot"><img src="zrzuty/13_paywall.png" alt="">
+      <div class="cap">Oferta pokazywana raz, po pierwszym ukończonym treningu</div></div>
+    <div class="col" style="padding-left:4mm">
+      <ul>
+        <li>Jedno źródło przychodu w aplikacji: subskrypcja. Żadnych reklam i żadnej sprzedaży danych.</li>
+        <li>Przez okres próbny aplikacja jest otwarta w całości — program, wszystkie ćwiczenia, jadłospis.</li>
+        <li>Po okresie próbnym treści zamykają się, a profil i ustawienia zostają dostępne.</li>
+        <li>Rezygnacja w Sklepie Play, dostęp do końca opłaconego okresu.</li>
+      </ul>
+      <div style="height:4mm"></div>
+      <p>Cennik i plany: <span class="todo">[do uzupełnienia — ceny ustalane w Google Play Console]</span></p>
+      <p class="muted">Na zrzucie plany nie są jeszcze wgrane do Play, dlatego widnieje komunikat o niedostępności.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Monetyzacja</span><span>09</span></div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="kicker">Pozyskanie</div>
+  <h2>Własny kanał treści zamiast kupowania każdego pobrania.</h2>
+  <div style="height:8mm"></div>
+  <div class="cols">
+    <div class="col">
+      <ul>
+        <li>Blog pod adresem lanovafit.com/blog z własnym silnikiem publikacji i procesem redakcyjnym: 14 stałych tematów, od treningu siłowego po menopauzę i badania nad fitnessem.</li>
+        <li>Każdy artykuł prowadzi do aplikacji przyciskami zaproszenia, a nie linkami w tekście — minimum dwa na tekst.</li>
+        <li>Strony artykułów mają reklamy Google AdSense; aplikacja i strona główna nie mają ich wcale.</li>
+        <li>Lądowanie, blog i strony prawne są gotowe do wdrożenia produkcyjnego.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="stats" style="flex-direction:column">
+        <div class="stat" style="border-right:0;border-bottom:1px solid var(--line)">
+          <div class="v">14</div><div class="l">Tematów redakcyjnych w systemie</div>
+        </div>
+        <div class="stat" style="border-right:0;border-bottom:1px solid var(--line)">
+          <div class="v">18–100</div><div class="l">Wiek odbiorczyni treści</div>
+        </div>
+        <div class="stat" style="border-right:0">
+          <div class="v">2+</div><div class="l">Zaproszenia do aplikacji w każdym artykule</div>
+        </div>
+      </div>
+      <div style="height:5mm"></div>
+      <p class="muted">Koszt pozyskania i prognoza ruchu: <span class="todo">[do uzupełnienia]</span></p>
+    </div>
+  </div>
+  <div class="foot"><span>Kanał pozyskania</span><span>10</span></div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="kicker">Stan prac</div>
+  <h2>Co jest gotowe, a co przed nami.</h2>
+  <div style="height:8mm"></div>
+  <table>
+    <tr><th style="width:38%">Obszar</th><th style="width:30%">Stan</th><th>Następny krok</th></tr>
+    <tr><td>Aplikacja mobilna (Android)</td><td>Gotowa funkcjonalnie</td><td>Wydanie do Google Play</td></tr>
+    <tr><td>Biblioteka ćwiczeń</td><td>222 ćwiczenia, 60 animacji</td><td>Pozostałe 162 animacje</td></tr>
+    <tr><td>Interfejs w 8 językach</td><td>Gotowy</td><td>Korekta native speakerów</td></tr>
+    <tr><td>Jadłospis</td><td>114 dań, 81 przepisów</td><td>Tłumaczenie treści kulinarnych</td></tr>
+    <tr><td>Subskrypcja</td><td>Wdrożona w aplikacji</td><td>Plany i ceny w Play Console</td></tr>
+    <tr><td>Blog i lądowanie</td><td>Gotowe</td><td>Publikacja i AdSense na produkcji</td></tr>
+    <tr><td>iOS</td><td>Projekt przygotowany</td><td><span class="todo">[termin do uzupełnienia]</span></td></tr>
+  </table>
+  <div class="foot"><span>Roadmapa</span><span>11</span></div>
+</section>
+
+<!-- 12 -->
+<section class="slide title-slide">
+  <div class="kicker">Czego szukamy</div>
+  <h1 style="font-size:40pt">Rozmowy o wejściu<br>na rynek.</h1>
+  <div style="height:10mm"></div>
+  <p class="lead" style="max-width:180mm">Produkt jest zbudowany i działa. Potrzebujemy partnera do premiery:
+  budżetu na pierwsze miesiące dystrybucji, dokończenia biblioteki animacji i wejścia na iOS.</p>
+  <div style="height:10mm"></div>
+  <p>Kwota, struktura rundy i wykorzystanie środków: <span style="color:#FF563C;font-weight:600">[do uzupełnienia]</span></p>
+  <p>Zespół: <span style="color:#FF563C;font-weight:600">[do uzupełnienia]</span></p>
+  <div style="height:12mm"></div>
+  <p class="wordmark">Lanova <span>Fit</span> · lanovafit.com</p>
+</section>
+
+</body>
+</html>
