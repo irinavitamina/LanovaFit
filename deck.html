@@ -64,10 +64,16 @@
                width: 3mm; height: 3mm; background: var(--accent); }
 
   .shots { display: flex; gap: 8mm; align-items: flex-end; }
-  .shots img { height: 108mm; border: 1px solid var(--line); display: block; }
-  .shots.tall img { height: 122mm; }
-  .cap { font-size: 9pt; color: var(--muted); margin-top: 2.5mm; line-height: 1.35; }
-  .shot { display: flex; flex-direction: column; }
+  /* 53.75mm is 108mm at the screenshots' own 1080x2170, and it is written out
+     rather than left to `width: auto`: the caption under a shot is wider than
+     the phone, and a column flex box stretches its children to the widest one,
+     which pulled the image out of shape on the slides with long captions. */
+  .shots img { width: 53.75mm; height: 108mm; border: 1px solid var(--line); display: block; }
+  .shots.tall img { width: 58.7mm; height: 118mm; }
+  .cap { font-size: 9pt; color: var(--muted); margin-top: 2.5mm; line-height: 1.35;
+         max-width: 53.75mm; }
+  .shots.tall .cap { max-width: 58.7mm; }
+  .shot { display: flex; flex-direction: column; align-items: flex-start; flex: 0 0 auto; }
   /* The phone shots line up on their bottom edge; the text beside them starts
      at the top, where the reader's eye already is. */
   .shots .col { align-self: flex-start; }
@@ -78,10 +84,14 @@
   .stat .v { font-size: 26pt; font-weight: 800; color: var(--accent); line-height: 1; }
   .stat .l { font-size: 8.5pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 2.5mm; }
 
-  .title-slide { background: var(--ink); color: #fff; justify-content: center; }
-  .title-slide h1 { font-size: 54pt; color: #fff; }
-  .title-slide .kicker { color: #FF563C; }
-  .title-slide p { color: #CFC8C5; }
+  /* Light, not black: these two slides get printed on paper more often than
+     they get projected, and a full-bleed black page eats a cartridge. */
+  .title-slide { background: #fff; color: var(--ink); justify-content: center;
+                 border-left: 6mm solid var(--accent); padding-left: 24mm; }
+  .title-slide h1 { font-size: 54pt; color: var(--ink); }
+  .title-slide .kicker { color: var(--accent); }
+  .title-slide p { color: var(--muted); }
+  .title-slide .wordmark { color: var(--ink); }
   .wordmark { font-size: 13pt; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; }
   .wordmark span { color: var(--accent); }
 
@@ -221,7 +231,7 @@
   <div class="kicker">Produkt · biblioteka</div>
   <h2>222 ćwiczenia, filtrowane pod to, co użytkowniczka naprawdę ma w domu.</h2>
   <div style="height:7mm"></div>
-  <div class="shots">
+  <div class="shots tall">
     <div class="shot"><img src="zrzuty/10_library.png" alt="">
       <div class="cap">Biblioteka zawężona do celu i sprzętu</div></div>
     <div class="shot"><img src="zrzuty/11_filters.png" alt="">
@@ -244,7 +254,7 @@
   <div class="kicker">Produkt · jadłospis</div>
   <h2>Jadłospis liczony z profilu, nie wybrany z listy diet.</h2>
   <div style="height:7mm"></div>
-  <div class="shots">
+  <div class="shots tall">
     <div class="shot"><img src="zrzuty/14_meals.png" alt="">
       <div class="cap">Cel dzienny, makroskładniki i menu na dziś</div></div>
     <div class="col" style="padding-left:4mm">
@@ -267,7 +277,7 @@
   <div class="kicker">Utrzymanie</div>
   <h2>Seria dni, minuty tygodnia i waga w jednym miejscu.</h2>
   <div style="height:7mm"></div>
-  <div class="shots">
+  <div class="shots tall">
     <div class="shot"><img src="zrzuty/12_progress.png" alt="">
       <div class="cap">Postępy po pierwszym treningu</div></div>
     <div class="shot"><img src="zrzuty/16_language.png" alt="">
@@ -290,7 +300,7 @@
   <div class="kicker">Model</div>
   <h2>Siedem dni pełnego dostępu, potem subskrypcja w Google Play.</h2>
   <div style="height:7mm"></div>
-  <div class="shots">
+  <div class="shots tall">
     <div class="shot"><img src="zrzuty/13_paywall.png" alt="">
       <div class="cap">Oferta pokazywana raz, po pierwszym ukończonym treningu</div></div>
     <div class="col" style="padding-left:4mm">
@@ -367,8 +377,8 @@
   <p class="lead" style="max-width:180mm">Produkt jest zbudowany i działa. Potrzebujemy partnera do premiery:
   budżetu na pierwsze miesiące dystrybucji, dokończenia biblioteki animacji i wejścia na iOS.</p>
   <div style="height:10mm"></div>
-  <p>Kwota, struktura rundy i wykorzystanie środków: <span style="color:#FF563C;font-weight:600">[do uzupełnienia]</span></p>
-  <p>Zespół: <span style="color:#FF563C;font-weight:600">[do uzupełnienia]</span></p>
+  <p>Kwota, struktura rundy i wykorzystanie środków: <span class="todo">[do uzupełnienia]</span></p>
+  <p>Zespół: <span class="todo">[do uzupełnienia]</span></p>
   <div style="height:12mm"></div>
   <p class="wordmark">Lanova <span>Fit</span> · lanovafit.com</p>
 </section>
